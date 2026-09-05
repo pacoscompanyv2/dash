@@ -1,0 +1,33 @@
+databases:
+  - name: sales-db
+    plan: free
+    databaseName: salesdb
+    user: postgres
+
+services:
+  - type: web
+    name: sales-dashboard
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: sales-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: sales-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: sales-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: sales-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: sales-db
+          property: password
