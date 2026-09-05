@@ -9,7 +9,8 @@ services:
     name: sales-dashboard
     env: docker
     plan: free
-    dockerfilePath: ./Dockerfile
+    image:
+      url: docker.io/paraje11/sales-dashboard:latest
     envVars:
       - key: DB_HOST
         fromDatabase:
