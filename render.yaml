@@ -2,7 +2,6 @@ databases:
   - name: sales-db
     plan: free
     databaseName: salesdb
-    user: postgres
 
 services:
   - type: web
